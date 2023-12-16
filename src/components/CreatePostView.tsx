@@ -15,7 +15,7 @@ export function CreatePostView({ refreshPosts }: Props) {
         <Col>
             <TextArea
                 rows={4}
-                placeholder="Start chirping..."
+                placeholder="start chirping..."
                 style={{
                     width: 300,
                 }}

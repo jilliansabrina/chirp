@@ -3,7 +3,9 @@
 import { useEffect, useState } from "react"
 import { CreatePostView } from "./CreatePostView"
 import { PostsObject } from "@/shared/datasource"
-import { Card, Divider, Space, Spin } from "antd"
+import { Card, Space, Spin, Button } from "antd"
+import { CreateCommentModal } from "./CreateCommentModal"
+import { CommentsList } from "./CommentsList"
 
 type Props = {
     userMap: Map<string, string>
@@ -36,6 +38,11 @@ export function PostsPage({ userMap }: Props) {
                                 <Card title={userMap.get(post.user_id)}>
                                     <p>{post.text}</p>
                                     <p>Chirped on {post.created_at}</p>
+                                    <CreateCommentModal postId={post.id} />
+                                    <CommentsList
+                                        postId={post.id}
+                                        userMap={userMap}
+                                    />
                                 </Card>
                             </Space>
                         </div>
